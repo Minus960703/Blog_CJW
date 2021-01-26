@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog_cjw.mappers.adminMapper">
+	
+	<!-- 글 목록 -->
+	<select id="list" resultType="com.blog_cjw.domain.BoardVO">
+		SELECT 
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick
+		FROM blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			order by b.bno desc
+	</select>
+	
+	<!-- 글 등록 -->
+	<insert id="write" parameterType="com.blog_cjw.domain.BoardVO">
+		insert into
+			blog_cjw_board(title, bCon, userId, bPart, bThumbnail)
+				values(#{title}, #{bCon}, #{userId}, #{bPart}, #{bThumbnail})
+	</insert>
+	
+	<!-- 글 조회 -->
+	<select id="view" resultType="com.blog_cjw.domain.BoardVO">
+		select 
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick
+		from blog_cjw_board b
+			inner join blog_cjw_user u
+				on b.userId = u.userId
+			where b.bno = #{bno}
+	</select>
+	
+	<!-- 글 수정 -->
+	<update id="modify">
+		update blog_cjw_board
+			set 
+				title = #{title},
+				bCon = #{bCon},
+				bThumbnail = #{bThumbnail},
+				bPart = #{bPart}
+			where bno = ${bno} 
+	</update>
+	
+	<!--  글 삭제 -->
+	<delete id="delete">
+		delete	
+			from blog_cjw_board
+		where bno = #{n}
+	</delete>
+	
+</mapper>
