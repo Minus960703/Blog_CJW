@@ -24,10 +24,10 @@
                     <a href="/introduce"><span>Introduce</span></a>
                 </li>
                 <li>
-                    <a href="/admin/board/list"><span>Personal</span></a>
+                    <a href="/show/list"><span>Personal</span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><span>PortFolio</span></a>   
+                    <a href="/portfolio/list?c=portfolio"><span>PortFolio</span></a>   
                 </li>
             </ul>
         </div>

@@ -3,11 +3,8 @@
     #nav #user {
         font-size: 1em;
     }
-    #footer #QnA{
-        width: 100%;
-    }
 }
-@media screen and (min-width:701px) and (max-width:1200px){
+@media screen and (min-width:701px) and (max-width:1080px){
     #nav{
         width: 80%;
         margin: 0 auto;
@@ -16,11 +13,8 @@
         width: 80%;
         margin: 0 auto;
     }
-    #footer #QnA{
-        width: 80%;
-    }
 }
-@media screen and (min-width:1201px){
+@media screen and (min-width:1081px) and (max-width:1600px){
     #nav{
         width: 80%;
         margin: 0 auto;
@@ -29,8 +23,16 @@
         width: 80%;
         margin: 0 auto;
     }
-    #footer #QnA{
-        width: 80%;
+    #wrap #aside
+}
+@media screen and (min-width:1601px) {
+    #nav{
+        width: 70%;
+        margin: 0 auto;
+    }   
+    #wrap{
+        width: 70%;
+        margin: 0 auto;
     }
 }
 li{
@@ -111,18 +113,101 @@ a{
 
 /*============ Main =================*/
 
-#wrap{
-    display: flex;
+#wrap{    
+	display: flex;
     height: auto;
     margin: 0 auto;
-    border: 1px solid #CCC;
+    border-top: 2px solid #ccc;
 }
+
+#wrap #aside{
+	width:17%;
+	text-align: left;
+	padding-right: 2em;
+	border-right: 2px solid #CCC;
+	font-size: 15px;
+	font-weight: bold;
+}
+#wrap #aside ul li {
+	margin-bottom: 1em;
+}
+
 #wrap #content{
+	display: flex;
+	width: 100%;
     height: auto;
-    margin: 1em 2em;
-    border: 1px solid #ccc;
+    margin: 0 auto;
     flex-direction: row;
     flex-wrap: wrap;
+}
+/*============ view(show) ===========*/
+#wrap #content #viewBox{
+	margin: 0 auto;
+}
+#wrap #content #viewBox #titlebar{
+	margin: 1em auto;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+	border-radius: 12px 12px 12px 12px;
+	padding-left: 1em;
+}
+#wrap #content #viewBox #sub{
+	margin: 0 auto;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+}
+#wrap #content #viewBox #datebar{
+	
+}
+#wrpa #content #viewBox #con{
+	margin: 0 auto;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+}
+
+/*===== list(show)============*/
+#wrap #content #boardlist{
+	margin: 20px;
+	width:100%;
+	display: inline-block;
+}
+#wrap #content #boardlist #child{
+	margin: 2em auto;
+}
+#wrap #content #boardlist .date_column{
+	padding-left: 1em;
+	color:gray;	
+	font-size:19px;
+}
+
+#wrap #content #boardlist #sub{
+	display: flex;
+	border:1px solid #ccc;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-radius: 12px 12px 12px 12px;
+}
+#wrap #content #boardlist .thumbnail_column{
+	padding: 10px 10px 10px 10px;
+}
+#wrap #content #boardlist .title_column{
+	width: 65%;
+	color: black;
+	margin-top: 0.3em;
+	margin-left: 0.5em;
+	padding-right: 0.8em;
+	font-size: 20pt;
+}
+#wrap #content #boardlist .title_column a{
+	
+}
+
+#wrap #content #boardlist #con_column{
+	color: gray;
+	font-size: 17px;
 }
 
 #wrap #content img{
@@ -136,16 +221,17 @@ a{
     align-content: center;
     margin: 0 auto;
     display: grid;
-    width: 100%;
     height: 150px;
-    border: 1px solid #ccc;
+    background-color: #3F3E3D;
 }
 
 #footer #copyright #info{
     width: 80%;
     height: 120px;
     margin: 0 auto;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
 }
 
 #footer #copyright #info p{

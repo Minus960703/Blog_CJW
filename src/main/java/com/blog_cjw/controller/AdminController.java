@@ -54,7 +54,7 @@ public class AdminController {
 	
 	//게시물 작성 보내기
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
-	public String postWrite(BoardVO vo, HttpSession session, @RequestParam("bThumbnail") String bThumbnail) throws Exception{
+	public String postWrite(BoardVO vo, HttpSession session, @RequestParam("bThumbnail") String bThumbnail, @RequestParam("bPart") String bPart) throws Exception{
 		System.out.println("글쓰기");
 		
 		if(bThumbnail.equals("null")){
@@ -66,7 +66,11 @@ public class AdminController {
 		
 		service.write(vo);
 		
-		return "redirect:/admin/board/list";
+		if(bPart.equals("portfolio")) {
+			return "redirect:/portfolio/list?c=portfolio";
+		}
+		
+		return "redirect:/show/list";
 	}
 	
 	//글 조회
@@ -90,15 +94,19 @@ public class AdminController {
 	
 	//글 수정
 	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
-	public String postModify(BoardVO vo, MultipartFile file, HttpServletRequest req, @RequestParam("bThumbnail") String bThumbnail) throws Exception{
+	public String postModify(BoardVO vo, MultipartFile file, HttpServletRequest req, @RequestParam("bThumbnail") String bThumbnail, @RequestParam("bPart") String bPart) throws Exception{
 		System.out.println("글 수정 시도");
 		
 		if(bThumbnail.equals("null")){
 			vo.setbThumbnail("/resources/img/default.png");
 		}
+		
 		service.modify(vo);
 		
-		return "redirect:/admin/board/list";
+		if(bPart.equals("portfolio")) {
+			return "redirect:/portfolio/list?c=portfolio";
+		}
+		return "redirect:/show/list";
 	}
 	
 	//글 삭제
@@ -108,7 +116,7 @@ public class AdminController {
 		
 		service.delete(bno);
 		
-		return "redirect:/admin/board/list";
+		return "redirect:/show/list";
 	}
 	
 	//썸머노트

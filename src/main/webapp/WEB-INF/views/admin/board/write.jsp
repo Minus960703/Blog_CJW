@@ -100,8 +100,9 @@
 					<label>분류</label>
 					<select name="bPart" id="bPart">
 						<option value="portfolio">포트폴리오</option>
-						<option value="hobby">공부</option>
-						<option value="study">취미</option>
+						<option value="backend">백엔드</option>
+						<option value="frontend">프론트엔드</option>
+						<option value="exercise">운동</option>
 					</select> <br /> 				
 					 
 					<label>제목</label>

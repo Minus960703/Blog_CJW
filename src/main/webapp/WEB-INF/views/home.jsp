@@ -16,10 +16,6 @@
 	
 	<!-- main -->
 	<div id="wrap">
-		<!-- aside -->
-		<aside>
-			<%@ include file="include/aside.jsp" %>
-		</aside>
 		<section id="content">
 			
 		</section>
