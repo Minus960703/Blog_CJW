@@ -90,10 +90,7 @@
 	
 	<!-- main -->
 	<div id="wrap">
-		<!-- aside -->
-		<aside>
-			<%@ include file="../../include/aside.jsp" %>
-		</aside>
+		<%@ include file="../../include/aside.jsp" %>
 			<section id="content">
 				<form role="form" method="post" autocomplete="off" enctype="multipart/form-data">
 					<h2>게시글 등록</h2> <br /> 

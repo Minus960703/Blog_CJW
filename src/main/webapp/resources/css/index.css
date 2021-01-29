@@ -111,16 +111,9 @@ a{
 	padding-bottom: 0;
 }
 
-/*============ Main =================*/
+/*============= aside ======================*/
 
-#wrap{    
-	display: flex;
-    height: auto;
-    margin: 0 auto;
-    border-top: 2px solid #ccc;
-}
-
-#wrap #aside{
+#aside{
 	width:17%;
 	text-align: left;
 	padding-right: 2em;
@@ -128,8 +121,17 @@ a{
 	font-size: 15px;
 	font-weight: bold;
 }
-#wrap #aside ul li {
+#aside ul li {
 	margin-bottom: 1em;
+}
+
+/*============ Main =================*/
+
+#wrap{    
+	display: flex;
+    height: auto;
+    margin: 0 auto;
+    border-top: 2px solid #ccc;
 }
 
 #wrap #content{
@@ -142,7 +144,9 @@ a{
 }
 /*============ view(show) ===========*/
 #wrap #content #viewBox{
-	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	margin: 1em auto;
 }
 #wrap #content #viewBox #titlebar{
 	margin: 1em auto;
@@ -150,25 +154,36 @@ a{
 	border: 1px solid #ccc;
 	height: auto;
 	border-radius: 12px 12px 12px 12px;
-	padding-left: 1em;
+	padding: 0 1em;
 }
 #wrap #content #viewBox #sub{
+	margin: 0 auto 1em;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+	border-radius: 12px 12px 12px 12px;
+	padding: 0.4em 1em;	
+}
+#wrap #content #viewBox #sub #writer_column{
+	font-size: 17px;
+	font-weight: bold;	
+}
+
+#wrap #content #viewBox #sub #writer_column #date_column{
+	color:gray;
+	float: right;
+}
+#wrap #content #viewBox #con{
 	margin: 0 auto;
 	width: 95%;
 	border: 1px solid #ccc;
 	height: auto;
-}
-#wrap #content #viewBox #datebar{
-	
-}
-#wrpa #content #viewBox #con{
-	margin: 0 auto;
-	width: 95%;
-	border: 1px solid #ccc;
-	height: auto;
+	border-radius: 12px 12px 12px 12px;
+	padding: 0.4em 1em;
 }
 
 /*===== list(show)============*/
+
 #wrap #content #boardlist{
 	margin: 20px;
 	width:100%;

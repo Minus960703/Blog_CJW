@@ -34,8 +34,8 @@ public class PortFolioController {
 	public void getView(@RequestParam("n") int bno, Model model) throws Exception{
 		System.out.println("get view");
 		
-		BoardVO board = service.view(bno);
+		BoardVO list = service.view(bno);
 		
-		model.addAttribute("board", board);
+		model.addAttribute("list", list);
 	}
 }

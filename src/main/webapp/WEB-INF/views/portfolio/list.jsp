@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +24,28 @@
 		<section id="content">
 			<div id="boardlist">
 				<c:forEach items="${list}" var="list">
-				<p id="font_date"><fmt:formatDate value="${list.bDate}" pattern="yyyyMMdd"></fmt:formatDate></p>
-			    <div><img src="${list.bThumbnail}"></div>
-			    <div><a href="/portfolio/view?n=${list.bno}">${list.title}</a></div>
-				<p>${list.userNick}</p>
+				<div id="child">
+					<div class="date_column">
+						<fmt:formatDate value="${list.bDate}" pattern="yyyyMMdd"></fmt:formatDate>
+					</div>
+					<div id="sub">
+						<div class="thumbnail_column">
+							<img src="${list.bThumbnail}">	
+						</div>
+						<div class="title_column">
+							<a href="/portfolio/view?n=${list.bno}">${list.title}</a>
+							
+							<span id="con_column">
+							<c:if test="${fn:length(list.bCon)>200}">
+								${fn:substring(list.bCon,0,200)}...
+							</c:if>
+							<c:if test="${fn:length(list.bCon)<=200}">
+								${list.bCon}
+							</c:if>
+							</span>	
+						</div>
+					</div>
+				</div>
 				</c:forEach>
 			</div>
 			<c:if test="${user != null and user.grade == 1}">

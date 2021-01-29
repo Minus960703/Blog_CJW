@@ -31,8 +31,10 @@
 						<h2>${list.title}</h2>
 					</div>
 					<div id="sub">
-						<h4>${list.userNick}(${list.userId})</h4>
-						<span id="datebar"><fmt:formatDate value="${list.bDate}" pattern="yyyyMMdd" /></span>
+						<div id="writer_column">
+							작성자 : ${list.userNick}(${list.userId})
+							<span id="date_column"><fmt:formatDate value="${list.bDate}" pattern="yyyy-MM-dd" /></span>
+						</div>
 					</div>
 					<div id="con">
 						${list.bCon}
