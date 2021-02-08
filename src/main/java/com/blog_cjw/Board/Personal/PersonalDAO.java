@@ -10,7 +10,7 @@ public interface PersonalDAO {
 	public List<BoardVO> list(String bPart) throws Exception;
 
 	//카테고리별 글 목록페이지
-	public List<BoardVO> listpage(int displayPost, int postNum) throws Exception;
+	public List<BoardVO> listpage(int displayPost, int postNum, String bPart) throws Exception;
 
 	//전체 글목록
 	public List<BoardVO> listall() throws Exception;

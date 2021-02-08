@@ -27,7 +27,7 @@ public class PersonalDAOImpl implements PersonalDAO {
 	}
 
 	@Override
-	public List<BoardVO> listpage(int displayPost, int postNum) throws Exception {
+	public List<BoardVO> listpage(int displayPost, int postNum, String bPart) throws Exception {
 		Map<String, Integer> data = new HashMap<String, Integer>();
 
 		data.put("displayPost",displayPost);

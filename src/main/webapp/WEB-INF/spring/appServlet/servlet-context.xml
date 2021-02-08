@@ -40,9 +40,9 @@
 	<!-- Interceptor 설정 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/board/write"/>
-			<mapping path="/admin/board/modify?n={no}"/>
-			<mapping path="/board/delete_{no}"/>
+			<mapping path="/admin/board/write"/>
+			<mapping path="/admin/board/modify*"/>
+			<mapping path="/admin/board/delete*"/>
 			<mapping path="/board/image"/>
 			<mapping path="/user/join"/>
 			<mapping path="/user/mypage/mypage"/>

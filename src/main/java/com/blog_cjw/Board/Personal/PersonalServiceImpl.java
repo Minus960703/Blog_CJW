@@ -21,8 +21,8 @@ public class PersonalServiceImpl implements PersonalService {
 	}
 
 	@Override
-	public List<BoardVO> listpage(int displayPost, int postNum) throws Exception {
-		return dao.listpage(displayPost, postNum);
+	public List<BoardVO> listpage(int displayPost, int postNum, String bPart) throws Exception {
+		return dao.listpage(displayPost, postNum, bPart);
 	}
 
 	//전체 글 목록 ( portfolio 제외 )

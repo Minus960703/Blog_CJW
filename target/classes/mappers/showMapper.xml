@@ -7,7 +7,7 @@
 	<!-- 카테고리별 글 목록 -->
 	<select id="list" resultType="com.blog_cjw.Board.BoardVO">
 		SELECT
-			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
 		FROM blog_cjw_board b
 			INNER JOIN blog_cjw_user u
 				ON b.userId = u.userId
@@ -18,7 +18,7 @@
 	<!-- 카테고리별 글 목록 -->
 	<select id="listall" resultType="com.blog_cjw.Board.BoardVO">
 		SELECT 
-			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
 		FROM blog_cjw_board b
 			INNER JOIN blog_cjw_user u
 				ON b.userId = u.userId
