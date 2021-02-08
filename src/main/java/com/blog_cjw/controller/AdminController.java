@@ -11,20 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpSession;
 
+import com.blog_cjw.User.UserVO;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.blog_cjw.domain.BoardVO;
-import com.blog_cjw.domain.UserVO;
-import com.blog_cjw.service.BoardService;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.blog_cjw.Board.BoardVO;
+import com.blog_cjw.Board.BoardService;
 import com.google.gson.JsonObject;
 
 @Controller
@@ -70,7 +68,7 @@ public class AdminController {
 			return "redirect:/portfolio/list?c=portfolio";
 		}
 		
-		return "redirect:/show/list";
+		return "redirect:/personal/list";
 	}
 	
 	//글 조회
@@ -106,7 +104,7 @@ public class AdminController {
 		if(bPart.equals("portfolio")) {
 			return "redirect:/portfolio/list?c=portfolio";
 		}
-		return "redirect:/show/list";
+		return "redirect:/personal/list";
 	}
 	
 	//글 삭제
@@ -116,7 +114,7 @@ public class AdminController {
 		
 		service.delete(bno);
 		
-		return "redirect:/show/list";
+		return "redirect:/personal/list";
 	}
 	
 	//썸머노트

@@ -5,8 +5,8 @@
 <mapper namespace="com.blog_cjw.mappers.showMapper">
 	
 	<!-- 카테고리별 글 목록 -->
-	<select id="list" resultType="com.blog_cjw.domain.BoardVO">
-		SELECT 
+	<select id="list" resultType="com.blog_cjw.Board.BoardVO">
+		SELECT
 			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
 		FROM blog_cjw_board b
 			INNER JOIN blog_cjw_user u
@@ -14,9 +14,9 @@
 			where b.bPart = #{bPart}
 			order by b.bno desc
 	</select>
-	
+
 	<!-- 카테고리별 글 목록 -->
-	<select id="listall" resultType="com.blog_cjw.domain.BoardVO">
+	<select id="listall" resultType="com.blog_cjw.Board.BoardVO">
 		SELECT 
 			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
 		FROM blog_cjw_board b
@@ -25,10 +25,20 @@
 			where b.bPart NOT LIKE 'portfolio'
 			order by b.bno desc
 	</select>
-	
+
+	<!-- 카테고리별 글 목록 페이지-->
+	<select id="listpage" parameterType="hashMap" resultType="com.blog_cjw.Board.BoardVO">
+		select
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
+		from blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			order by b.bno desc
+			limit #{displayPost}, #{postNum}
+	</select>
 
 	<!-- 글 조회 -->
-	<select id="view" resultType="com.blog_cjw.domain.BoardVO">
+	<select id="view" resultType="com.blog_cjw.Board.BoardVO">
 		select 
 			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
 		from blog_cjw_board b
@@ -54,5 +64,19 @@
 			from blog_cjw_board
 		where bno = #{n}
 	</delete>
+
+	<!-- 게시물 총 갯수 -->
+	<select id="count" resultType="int">
+		select count(bno)
+		from blog_cjw_board
+		where bPart = #{bPart}
+	</select>
+
+	<!-- listall 갯수 -->
+	<select id="countall" resultType="int">
+		select count(bno)
+		from blog_cjw_board
+		where bPart Not Like 'portfolio'
+	</select>
 	
 </mapper>

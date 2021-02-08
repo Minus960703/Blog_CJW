@@ -1,0 +1,254 @@
+
+@media screen and (max-width:700px){
+    #nav #user {
+        font-size: 1em;
+    }
+}
+@media screen and (min-width:701px) and (max-width:1080px){
+    #nav{
+        width: 80%;
+        margin: 0 auto;
+    }   
+    #wrap{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width:1081px) and (max-width:1600px){
+    #nav{
+        width: 80%;
+        margin: 0 auto;
+    }   
+    #wrap{
+        width: 80%;
+        margin: 0 auto;
+    }
+    #wrap #aside
+}
+@media screen and (min-width:1601px) {
+    #nav{
+        width: 70%;
+        margin: 0 auto;
+    }   
+    #wrap{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*====================== NAV  =====================================*/
+#nav{
+    margin: 2em auto;
+	height: auto;
+    background-image: url('http://www~');
+}
+
+#nav #content{
+    display: flex;
+    justify-content: space-between;
+}
+#nav #content #logo{
+    width: 40%;
+    height: auto;
+}
+
+#nav #content #logo img{
+    width:100%;
+    height: auto;
+}
+
+#nav #content #login{
+    height: auto;
+}
+#nav #content #login ul{
+    text-align: center;
+    font-weight: bold;
+}
+
+#nav #content #login ul li a{
+    color:gray;
+    padding: 2px 6px 4px 6px;
+    text-decoration: none;
+}
+
+#nav #content #login ul li a:hover{
+    color: black;
+    background-color: #F3F3F3;
+}
+
+#nav #part ul{
+	margin: 0;
+	margin-bottom: 1em;
+	padding-left: 0;
+	font-weight: bold;
+	width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#nav #part ul li{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#nav #part ul li a{
+	color: gray;
+	font-weight: bold;
+	padding: 2px 6px 4px 6px;
+	text-decoration: none;
+}
+
+#nav #part ul li a:hover{
+	color: black;
+	background-color: #F3F3F3;
+	border-bottom: 2px solid black;
+	padding-bottom: 0;
+}
+
+/*============= aside ======================*/
+
+#aside{
+	width:17%;
+	text-align: left;
+	padding-right: 2em;
+	border-right: 2px solid #CCC;
+	font-size: 15px;
+	font-weight: bold;
+}
+#aside ul li {
+	margin-bottom: 1em;
+}
+
+/*============ Main =================*/
+
+#wrap{    
+	display: flex;
+    height: auto;
+    margin: 0 auto;
+    border-top: 2px solid #ccc;
+}
+
+#wrap #content{
+	display: flex;
+	width: 100%;
+    height: auto;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/*============ view(show) ===========*/
+#wrap #content #viewBox{
+	width: 100%;
+	height: auto;
+	margin: 1em auto;
+}
+#wrap #content #viewBox #titlebar{
+	margin: 1em auto;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+	border-radius: 12px 12px 12px 12px;
+	padding: 0 1em;
+}
+#wrap #content #viewBox #sub{
+	margin: 0 auto 1em;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+	border-radius: 12px 12px 12px 12px;
+	padding: 0.4em 1em;	
+}
+#wrap #content #viewBox #sub #writer_column{
+	font-size: 17px;
+	font-weight: bold;	
+}
+
+#wrap #content #viewBox #sub #writer_column #date_column{
+	color:gray;
+	float: right;
+}
+#wrap #content #viewBox #con{
+	margin: 0 auto;
+	width: 95%;
+	border: 1px solid #ccc;
+	height: auto;
+	border-radius: 12px 12px 12px 12px;
+	padding: 0.4em 1em;
+}
+
+/*===== list(show)============*/
+
+#wrap #content #boardlist{
+	margin: 20px;
+	width:100%;
+	display: inline-block;
+}
+#wrap #content #boardlist #child{
+	margin: 2em auto;
+}
+#wrap #content #boardlist .date_column{
+	padding-left: 1em;
+	color:gray;	
+	font-size:19px;
+}
+
+#wrap #content #boardlist #sub{
+	display: flex;
+	border:1px solid #ccc;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-radius: 12px 12px 12px 12px;
+}
+#wrap #content #boardlist .thumbnail_column{
+	padding: 10px 10px 10px 10px;
+}
+#wrap #content #boardlist .title_column{
+	width: 65%;
+	color: black;
+	margin-top: 0.3em;
+	margin-left: 0.5em;
+	padding-right: 0.8em;
+	font-size: 20pt;
+}
+#wrap #content #boardlist .title_column a{
+	
+}
+
+#wrap #content #boardlist #con_column{
+	color: gray;
+	font-size: 17px;
+}
+
+#wrap #content img{
+    width: 200px;
+    height: 200px;
+}
+
+/*================= footer ================*/
+
+#footer #copyright{
+    align-content: center;
+    margin: 0 auto;
+    display: grid;
+    height: 150px;
+    background-color: #3F3E3D;
+}
+
+#footer #copyright #info{
+    width: 80%;
+    height: 120px;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
+}
+
+#footer #copyright #info p{
+    margin: 1em 3em;
+}

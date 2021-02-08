@@ -5,7 +5,7 @@
 <mapper namespace="com.blog_cjw.mappers.portfolioMapper">
 	
 	<!-- 카테고리별 글 목록 -->
-	<select id="list" resultType="com.blog_cjw.domain.BoardVO">
+	<select id="list" resultType="com.blog_cjw.Board.BoardVO">
 		SELECT 
 			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick,b.bDate
 		FROM blog_cjw_board b
@@ -16,7 +16,7 @@
 	</select>
 
 	<!-- 글 조회 -->
-	<select id="view" resultType="com.blog_cjw.domain.BoardVO">
+	<select id="view" resultType="com.blog_cjw.Board.BoardVO">
 		select 
 			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
 		from blog_cjw_board b

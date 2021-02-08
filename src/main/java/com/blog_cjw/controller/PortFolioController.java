@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.blog_cjw.domain.BoardVO;
-import com.blog_cjw.service.PortfolioService;
+import com.blog_cjw.Board.BoardVO;
+import com.blog_cjw.Board.Portfolio.PortfolioService;
 
 @Controller
 @RequestMapping("/portfolio/*")
