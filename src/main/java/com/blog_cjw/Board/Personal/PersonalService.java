@@ -10,7 +10,9 @@ public interface PersonalService {
 	public List<BoardVO> list(String bPart) throws Exception;
 
 	//카테고리별 글 목록페이지
-	public List<BoardVO> listpage(int displayPost, int postNum, String bPart) throws Exception;
+	public List<BoardVO> listpage(String bPart, int displayPost, int postNum) throws Exception;
+
+	public List<BoardVO> listpageall(int displayPost, int postNum) throws Exception;
 
 	//전체 글 목록 ( portfolio 빼고)
 	public List<BoardVO> listall() throws Exception;

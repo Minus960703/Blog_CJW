@@ -45,6 +45,7 @@
                               ${list.bCon}
                             </c:if>
 							</span>
+              ${list.bPart}
             </div>
           </div>
         </div>
@@ -58,12 +59,12 @@
     </c:if>
 
     <c:if test="${page.prev}">
-      <span>[ <a href="/listpage?c=frontend?num=${page.startPageNum - 1}">이</a>]</span>
+      <span>[ <a href="/personal/listpage?num=${page.startPageNum - 1}">이전</a>]</span>
     </c:if>
     <c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
 		<span>
 			<c:if test="${select != num}">
-              <a href="/listpage?c=frontend?num=${num}">${num}</a>
+              <a href="/personal/listpage?num=${num}">${num}</a>
             </c:if>
 			<c:if test="${select == num}">
               <b> ${num}</b>
@@ -71,7 +72,7 @@
 		</span>
     </c:forEach>
     <c:if test="${page.next}">
-      <span>[ <a href="/listpage?c=frontend?num=${page.endPageNum + 1}">다</a>]</span>
+      <span>[ <a href="/personal/listpage?num=${page.endPageNum + 1}">다음</a>]</span>
     </c:if>
   </section>
 </div>

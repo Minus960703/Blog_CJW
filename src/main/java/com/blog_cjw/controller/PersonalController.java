@@ -7,8 +7,7 @@ import javax.inject.Inject;
 import com.blog_cjw.Board.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.blog_cjw.Board.BoardVO;
 import com.blog_cjw.Board.Personal.PersonalService;
@@ -34,8 +33,8 @@ public class PersonalController {
 	}
 
 	//카테고리별 글 목록
-	@RequestMapping("/listpage")
-	public void getListpage(@RequestParam(value = "c", defaultValue="all") String bPart, Model model, @RequestParam("num") int num) throws Exception{
+	@GetMapping("/listpage")
+	public void getListpage(@RequestParam(value = "c", defaultValue = "all") String bPart, Model model, @RequestParam("num") int num) throws Exception{
 
 		Page page = new Page();
 
@@ -43,14 +42,16 @@ public class PersonalController {
 		page.setCount(service.count(bPart));
 
 		List<BoardVO> list = null;
-		list = service.listpage(page.getDisplayPost(), page.getPostNum(), bPart);
+		list = service.listpage(bPart, page.getDisplayPost(), page.getPostNum());
 
 		if(bPart.equals("all")){
 			page.setCount(service.countall());
-			list = service.listall();
+			list = service.listpageall(page.getDisplayPost(), page.getPostNum());
 		}
 		model.addAttribute("list", list);
+
 		model.addAttribute("page", page);
+
 		model.addAttribute("select", num);
 
 	}

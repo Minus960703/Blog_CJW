@@ -27,13 +27,24 @@ public class PersonalDAOImpl implements PersonalDAO {
 	}
 
 	@Override
-	public List<BoardVO> listpage(int displayPost, int postNum, String bPart) throws Exception {
+	public List<BoardVO> listpage(String bPart, int displayPost, int postNum) throws Exception {
+		Map<String, Object> data = new HashMap<String, Object>();
+
+		data.put("bPart", bPart);
+		data.put("displayPost", displayPost);
+		data.put("postNum", postNum);
+
+		return sql.selectList(namespace + ".listpage", data);
+	}
+
+	@Override
+	public List<BoardVO> listpageall(int displayPost, int postNum) throws Exception {
 		Map<String, Integer> data = new HashMap<String, Integer>();
 
 		data.put("displayPost",displayPost);
 		data.put("postNum",postNum);
 
-		return sql.selectList(namespace + ".listpage", data);
+		return sql.selectList(namespace + ".listpageall", data);
 	}
 
 	//전체 글 목록( portfolio 제외 )

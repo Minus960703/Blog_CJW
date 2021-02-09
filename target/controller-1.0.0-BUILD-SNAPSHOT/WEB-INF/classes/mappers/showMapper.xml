@@ -29,10 +29,23 @@
 	<!-- 카테고리별 글 목록 페이지-->
 	<select id="listpage" parameterType="hashMap" resultType="com.blog_cjw.Board.BoardVO">
 		select
-			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
 		from blog_cjw_board b
 			INNER JOIN blog_cjw_user u
 				ON b.userId = u.userId
+			where b.bPart = #{bPart}
+			order by b.bno desc
+			limit #{displayPost}, #{postNum}
+	</select>
+
+	<!-- 카테고리별 글 목록 페이지-->
+	<select id="listpageall" parameterType="hashMap" resultType="com.blog_cjw.Board.BoardVO">
+		select
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
+		from blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			where b.bPart NOT LIKE 'portfolio'
 			order by b.bno desc
 			limit #{displayPost}, #{postNum}
 	</select>
@@ -69,7 +82,7 @@
 	<select id="count" resultType="int">
 		select count(bno)
 		from blog_cjw_board
-		where bPart = #{bPart}
+		where bPart Like #{bPart}
 	</select>
 
 	<!-- listall 갯수 -->
