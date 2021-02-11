@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,12 +60,12 @@
     </c:if>
 
     <c:if test="${page.prev}">
-      <span>[ <a href="/personal/listpage?num=${page.startPageNum - 1}">이전</a>]</span>
+      <span>[ <a href="/personal/listpage?c=${list.bPart}&num=${page.startPageNum - 1}">이전</a>]</span>
     </c:if>
     <c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
 		<span>
 			<c:if test="${select != num}">
-              <a href="/personal/listpage?num=${num}">${num}</a>
+              <a href="/personal/listpage?c=${list.bPart}&num=${num}">${num}</a>
             </c:if>
 			<c:if test="${select == num}">
               <b> ${num}</b>
@@ -72,7 +73,7 @@
 		</span>
     </c:forEach>
     <c:if test="${page.next}">
-      <span>[ <a href="/personal/listpage?num=${page.endPageNum + 1}">다음</a>]</span>
+      <span>[ <a href="/personal/listpage?c=${list.bPart}&num=${page.endPageNum + 1}">다음</a>]</span>
     </c:if>
   </section>
 </div>
