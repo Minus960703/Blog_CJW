@@ -2,6 +2,17 @@ package com.blog_cjw.Board;
 
 public class Page {
 
+    //카테고리
+    private String bPart;
+
+    public String getbPart() {
+        return bPart;
+    }
+
+    public void setbPart(String bPart) {
+        this.bPart = bPart;
+    }
+
     // 현재 페이지 번호
     private int num;
 

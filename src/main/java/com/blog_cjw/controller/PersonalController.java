@@ -45,9 +45,10 @@ public class PersonalController {
         Page page = new Page();
 
         page.setNum(num);
-        page.setCount(service.count(bPart));
+        page.setbPart(bPart);
+        page.setCount(service.count(page.getbPart()));
 
-        List<BoardVO> list = service.listpage(bPart, page.getDisplayPost(), page.getPostNum());
+        List<BoardVO> list = service.listpage(page.getbPart(), page.getDisplayPost(), page.getPostNum());
 
         if (bPart.equals("all")) {
             page.setCount(service.countall());

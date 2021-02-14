@@ -1,8 +1,17 @@
+<%@ page import="org.slf4j.Logger" %>
+<%@ page import="org.slf4j.LoggerFactory" %>
+<%@ page import="com.blog_cjw.controller.PersonalController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%! static Logger logger = LoggerFactory.getLogger(PersonalController.class); %>
+
+<%
+    String bPart;
+%>
 
 <!DOCTYPE html>
 <html>
@@ -46,12 +55,12 @@
                               ${list.bCon}
                             </c:if>
 							</span>
-              ${list.bPart}
             </div>
           </div>
         </div>
       </c:forEach>
     </div>
+
     <c:if test="${user.grade != 1}">
       <p>글을 쓸수 있는 권한이 없습니다.</p>
     </c:if>
@@ -60,12 +69,12 @@
     </c:if>
 
     <c:if test="${page.prev}">
-      <span>[ <a href="/personal/listpage?c=${list.bPart}&num=${page.startPageNum - 1}">이전</a>]</span>
+      <span>[ <a href="/personal/listpage?c=${page.bPart}&num=${page.startPageNum - 1}">이전</a>]</span>
     </c:if>
     <c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
 		<span>
 			<c:if test="${select != num}">
-              <a href="/personal/listpage?c=${list.bPart}&num=${num}">${num}</a>
+              <a href="/personal/listpage?c=${page.bPart}&num=${num}">${num}</a>
             </c:if>
 			<c:if test="${select == num}">
               <b> ${num}</b>
@@ -73,7 +82,7 @@
 		</span>
     </c:forEach>
     <c:if test="${page.next}">
-      <span>[ <a href="/personal/listpage?c=${list.bPart}&num=${page.endPageNum + 1}">다음</a>]</span>
+      <span>[ <a href="/personal/listpage?c=${page.bPart}&num=${page.endPageNum + 1}">다음</a>]</span>
     </c:if>
   </section>
 </div>
