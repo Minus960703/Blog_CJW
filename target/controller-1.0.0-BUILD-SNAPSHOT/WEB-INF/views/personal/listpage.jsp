@@ -55,7 +55,6 @@
                               ${list.bCon}
                             </c:if>
 							</span>
-              ${page.bPart}
             </div>
           </div>
         </div>
@@ -66,7 +65,7 @@
       <p>글을 쓸수 있는 권한이 없습니다.</p>
     </c:if>
     <c:if test="${user.grade == 1}">
-      <a href="/admin/board/write">글 작성</a>
+      <p><a href="/admin/board/write">글 작성</a></p>
     </c:if>
 
     <c:if test="${page.prev}">

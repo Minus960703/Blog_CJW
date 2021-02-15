@@ -142,6 +142,78 @@ a{
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+/*================ intro ===================*/
+#wrap #content #intro{
+    width: 100%;
+    height: auto;
+    margin: 1em auto;
+    display: inline-block;
+}
+
+#wrap #content #intro table{
+    border: 1px solid #CCCCCC;
+}
+
+#wrap #content #intro table thead{
+    background-color: #868e96;
+}
+
+#wrap #content #intro table td{
+    border: 1px solid #CCCCCC;
+}
+
+#wrap #content #intro #introtitle{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+#wrap #content #intro #introinfo{
+    margin: 1px auto;
+    width: 85%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-width: wrap;
+}
+
+#wrap #content #intro #imginfo{
+    padding: 10px 10px 10px 10px;
+}
+#wrap #content #intro #myinfo{
+    margin-left: 10px;
+}
+#wrap #content #intro #gradeinfo {
+    margin: 2px auto;
+    width: 85%;
+    height: auto;
+}
+#wrap #content #intro #gradeinfo span {
+    border-bottom: 1px solid #868e96;
+}
+#wrap #content #intro #careerinfo {
+    margin: 2px auto;
+    width: 85%;
+    height: auto;
+}
+#wrap #content #intro #plusinfo {
+    margin: 2px auto;
+    width: 85%;
+    height: auto;
+}
+#wrap #content #intro #introduce{
+    margin: 2px auto;
+    width: 85%;
+    height: auto;
+}
+#wrap #content #intro #introducemyself{
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #CCCCCC;
+}
+
+
+
 /*============ view(show) ===========*/
 #wrap #content #viewBox{
 	width: 100%;
