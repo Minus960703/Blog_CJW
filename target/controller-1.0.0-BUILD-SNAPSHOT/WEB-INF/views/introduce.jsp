@@ -25,7 +25,7 @@
 				</div>
 				<div id="introinfo">
 					<div id="imginfo">
-						<img src=""/>
+						<img src="${pageContext.request.contextPath}/resources/img/info.jpg"/>
 					</div>
 					<div id="myinfo">
 						<h4>최진우</h4>
