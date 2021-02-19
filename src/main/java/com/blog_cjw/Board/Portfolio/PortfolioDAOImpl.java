@@ -18,13 +18,13 @@ public class PortfolioDAOImpl implements PortfolioDAO{
 	//글 목록 
 	@Override
 	public List<BoardVO> list(String bPart) throws Exception {
-		return sql.selectList("com.blog_cjw.mappers.showMapper" + ".list", bPart);
+		return sql.selectList("com.blog_cjw.mappers.personalMapper" + ".list", bPart);
 	}
 
 	//글 조회
 	@Override
 	public BoardVO view(int bno) throws Exception {
-		return sql.selectOne("com.blog_cjw.mappers.showMapper" + ".view", bno);
+		return sql.selectOne("com.blog_cjw.mappers.personalMapper" + ".view", bno);
 	}
 
 	

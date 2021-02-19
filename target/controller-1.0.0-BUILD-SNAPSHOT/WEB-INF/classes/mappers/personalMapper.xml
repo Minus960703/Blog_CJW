@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog_cjw.mappers.personalMapper">
+	
+	<!-- 카테고리별 글 목록 -->
+	<select id="list" resultType="com.blog_cjw.Board.BoardVO">
+		SELECT
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
+		FROM blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			where b.bPart = #{bPart}
+			order by b.bno desc
+	</select>
+
+	<!-- 카테고리별 글 목록 -->
+	<select id="listall" resultType="com.blog_cjw.Board.BoardVO">
+		SELECT 
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
+		FROM blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			where b.bPart NOT LIKE 'portfolio'
+			order by b.bno desc
+	</select>
+
+	<!-- 카테고리별 글 목록 페이지-->
+	<select id="listpage" parameterType="hashMap" resultType="com.blog_cjw.Board.BoardVO">
+		select
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
+		from blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			where b.bPart = #{bPart}
+			order by b.bno desc
+			limit #{displayPost}, #{postNum}
+	</select>
+
+	<!-- 카테고리별 글 목록 페이지-->
+	<select id="listpageall" parameterType="hashMap" resultType="com.blog_cjw.Board.BoardVO">
+		select
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate, b.bPart
+		from blog_cjw_board b
+			INNER JOIN blog_cjw_user u
+				ON b.userId = u.userId
+			where b.bPart NOT LIKE 'portfolio'
+			order by b.bno desc
+			limit #{displayPost}, #{postNum}
+	</select>
+
+	<!-- 글 조회 -->
+	<select id="view" resultType="com.blog_cjw.Board.BoardVO">
+		select 
+			b.bno, b.userId, b.title, b.bCon, b.bThumbnail, b.viewCnt, u.userNick, b.bDate
+		from blog_cjw_board b
+			inner join blog_cjw_user u
+				on b.userId = u.userId
+			where b.bno = #{bno}
+	</select>
+	
+	<!-- 글 수정 -->
+	<update id="modify">
+		update blog_cjw_board
+			set 
+				title = #{title},
+				bCon = #{bCon},
+				bThumbnail = #{bThumbnail},
+				bPart = #{bPart}
+			where bno = ${bno} 
+	</update>
+	
+	<!--  글 삭제 -->
+	<delete id="delete">
+		delete	
+			from blog_cjw_board
+		where bno = #{n}
+	</delete>
+
+	<!-- 게시물 총 갯수 -->
+	<select id="count" resultType="int">
+		select count(bno)
+		from blog_cjw_board
+		where bPart Like #{bPart}
+	</select>
+
+	<!-- listall 갯수 -->
+	<select id="countall" resultType="int">
+		select count(bno)
+		from blog_cjw_board
+		where bPart Not Like 'portfolio'
+	</select>
+
+	<!-- 댓글 작성 -->
+	<insert id="commentregist">
+		insert into bcomment (bno, userId, cCon)
+			values (#{bno}, #{userId}, #{cCon})
+	</insert>
+
+	<!-- 댓글 리스트 -->
+	<select id="commentlist" resultType="com.blog_cjw.Comment.CommentListVO">
+		select b.bno, b.userId, b.cno, b.cCon, b.cDate, u.userNick
+			from bcomment b
+				INNER JOIN blog_cjw_user u
+					on b.userId = u.userId
+			where b.bno = #{bno}
+	</select>
+	
+</mapper>

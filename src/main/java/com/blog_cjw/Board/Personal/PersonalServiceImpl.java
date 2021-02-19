@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.blog_cjw.Comment.CommentListVO;
+import com.blog_cjw.Comment.CommentVO;
 import org.springframework.stereotype.Service;
 
 import com.blog_cjw.Board.BoardVO;
@@ -49,6 +51,16 @@ public class PersonalServiceImpl implements PersonalService {
 	@Override
 	public int countall() throws Exception {
 		return dao.countall();
+	}
+
+	@Override
+	public void commentregist(CommentVO commentVO) throws Exception {
+		dao.commentregist(commentVO);
+	}
+
+	@Override
+	public List<CommentListVO> commentlist(int bno) throws Exception {
+		return dao.commentlist(bno);
 	}
 
 }

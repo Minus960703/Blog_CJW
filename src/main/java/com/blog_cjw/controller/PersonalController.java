@@ -4,8 +4,13 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import com.blog_cjw.Board.Page;
+import com.blog_cjw.Comment.CommentListVO;
+import com.blog_cjw.Comment.CommentVO;
+import com.blog_cjw.User.UserVO;
+import com.sun.xml.internal.rngom.ast.builder.CommentList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -25,7 +30,7 @@ public class PersonalController {
     private static final Logger logger = LoggerFactory.getLogger(PersonalController.class);
 
     //카테고리별 글 목록
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public void getList(@RequestParam(value = "c", defaultValue = "all") String bPart, Model model) throws Exception {
         System.out.println("get list");
 
@@ -64,13 +69,46 @@ public class PersonalController {
 
 
     //글 조회
-    @RequestMapping("/view")
+    @GetMapping("/view")
     public void getView(@RequestParam("n") int bno, Model model) throws Exception {
         System.out.println("get view");
 
         BoardVO list = service.view(bno);
-
         model.addAttribute("list", list);
+
+        /*
+        List<CommentListVO> commentlist = service.commentlist(bno);
+        model.addAttribute("commentlist", commentlist);
+         */
+    }
+
+    /* 댓글작성
+    @PostMapping("/view")
+    public String commentregist(CommentVO commentVO, HttpSession session) throws Exception{
+        UserVO user = (UserVO)session.getAttribute("user");
+        commentVO.setUserId(user.getUserId());
+
+        service.commentregist(commentVO);
+
+        return "redirect:/personal/view?n=" + commentVO.getBno();
+    }
+     */
+
+    @ResponseBody
+    @GetMapping("/view/commentList")
+    public List<CommentListVO> getcommentlist(@RequestParam("n") int bno) throws Exception {
+        List<CommentListVO> commentlist = service.commentlist(bno);
+
+        return commentlist;
+    }
+
+    @ResponseBody
+    @PostMapping("/view/commentregist")
+    public void commentregist(CommentVO commentVO, HttpSession session) throws Exception{
+        UserVO user = (UserVO)session.getAttribute("user");
+        commentVO.setUserId(user.getUserId());
+
+        service.commentregist(commentVO);
     }
 
 }

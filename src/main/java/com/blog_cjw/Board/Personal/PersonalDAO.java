@@ -3,6 +3,8 @@ package com.blog_cjw.Board.Personal;
 import java.util.List;
 
 import com.blog_cjw.Board.BoardVO;
+import com.blog_cjw.Comment.CommentListVO;
+import com.blog_cjw.Comment.CommentVO;
 
 public interface PersonalDAO {
 
@@ -25,4 +27,10 @@ public interface PersonalDAO {
 
 	//포트폴리오 제외 게시물 갯수
 	public int countall() throws Exception;
+
+	//댓글 작성
+	public void commentregist(CommentVO commentVO) throws Exception;
+
+	//댓글 목록
+	public List<CommentListVO> commentlist(int bno) throws Exception;
 }

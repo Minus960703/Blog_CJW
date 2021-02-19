@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import com.blog_cjw.Comment.CommentListVO;
+import com.blog_cjw.Comment.CommentVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -16,10 +18,10 @@ public class PersonalDAOImpl implements PersonalDAO {
 
 	@Inject
 	SqlSession sql;
-	
+
 	//매퍼
-	private static String namespace = "com.blog_cjw.mappers.showMapper";
-	
+	private static String namespace = "com.blog_cjw.mappers.personalMapper";
+
 	//카테고리별 글 목록
 	@Override
 	public List<BoardVO> list(String bPart) throws Exception {
@@ -49,7 +51,7 @@ public class PersonalDAOImpl implements PersonalDAO {
 
 	//전체 글 목록( portfolio 제외 )
 	@Override
-	public List<BoardVO> listall() throws Exception { 
+	public List<BoardVO> listall() throws Exception {
 		return sql.selectList(namespace + ".listall");
 	}
 
@@ -67,5 +69,15 @@ public class PersonalDAOImpl implements PersonalDAO {
 	@Override
 	public int countall() throws Exception {
 		return sql.selectOne(namespace + ".countall");
+	}
+
+	@Override
+	public void commentregist(CommentVO commentVO) throws Exception {
+		sql.insert(namespace + ".commentregist", commentVO);
+	}
+
+	@Override
+	public List<CommentListVO> commentlist(int bno) throws Exception {
+		return sql.selectList(namespace + ".commentlist", bno);
 	}
 }
