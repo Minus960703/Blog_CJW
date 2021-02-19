@@ -106,5 +106,20 @@
 					on b.userId = u.userId
 			where b.bno = #{bno}
 	</select>
+
+	<!-- 댓글 삭제 -->
+	<delete id="commentdelete">
+		delete
+			from bcomment
+			where cno = #{cno}
+				and userId = #{userId}
+	</delete>
+
+	<!-- 아이디 체크 -->
+	<select id="commentUserIdCheck" resultType="String">
+		select userId
+			from bcomment
+				where cno = #{cno}
+	</select>
 	
 </mapper>

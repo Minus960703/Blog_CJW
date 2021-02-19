@@ -111,4 +111,21 @@ public class PersonalController {
         service.commentregist(commentVO);
     }
 
+    @ResponseBody
+    @PostMapping("/view/commentdelete")
+    public int commentdelete(CommentVO commentVO, HttpSession session) throws Exception{
+        int result = 0;
+
+        UserVO user = (UserVO)session.getAttribute("user");
+        String userId = service.idCheck(commentVO.getCno());
+
+        if(user.getUserId().equals(userId)){
+            commentVO.setUserId(user.getUserId());
+            service.commentdelete(commentVO);
+
+            result = 1;
+        }
+
+        return result;
+    }
 }

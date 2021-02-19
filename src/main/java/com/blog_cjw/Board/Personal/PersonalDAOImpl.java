@@ -80,4 +80,14 @@ public class PersonalDAOImpl implements PersonalDAO {
 	public List<CommentListVO> commentlist(int bno) throws Exception {
 		return sql.selectList(namespace + ".commentlist", bno);
 	}
+
+	@Override
+	public void commentdelete(CommentVO commentVO) throws Exception {
+		sql.delete(namespace + ".commentdelete", commentVO);
+	}
+
+	@Override
+	public String idCheck(int cno) throws Exception {
+		return sql.selectOne(namespace + ".commentUserIdCheck", cno);
+	}
 }

@@ -33,4 +33,10 @@ public interface PersonalDAO {
 
 	//댓글 목록
 	public List<CommentListVO> commentlist(int bno) throws Exception;
+
+	//댓글 삭제
+	public void commentdelete(CommentVO commentVO) throws Exception;
+
+	//아이디 체크
+	public String idCheck(int cno) throws Exception;
 }

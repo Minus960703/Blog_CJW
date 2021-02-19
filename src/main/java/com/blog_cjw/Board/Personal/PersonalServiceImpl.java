@@ -63,4 +63,14 @@ public class PersonalServiceImpl implements PersonalService {
 		return dao.commentlist(bno);
 	}
 
+	@Override
+	public void commentdelete(CommentVO commentVO) throws Exception {
+		dao.commentdelete(commentVO);
+	}
+
+	@Override
+	public String idCheck(int cno) throws Exception {
+		return dao.idCheck(cno);
+	}
+
 }

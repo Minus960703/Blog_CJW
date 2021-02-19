@@ -31,6 +31,10 @@
 							+ "<span class='userNick'>" + this.userNick + "</span>"
 							+ "<span class='cDate'>" + cDate + "</span>"
 							+ "<div class='cCon'>" + this.cCon + "</div>"
+
+							+ "<div class='commentFooter'>"
+							+ "<button type='button' class='modify' data-cno='" + this.cno + "'>수정</button>"
+							+ "<button type='button' class='delete' data-cno='" + this.cno + "'>삭제</button>"
 							+ "</li>";
 				});
 
@@ -142,6 +146,33 @@
 
 				<script>
 					commentList();
+				</script>
+
+				<script>
+					$(document).on("click", ".delete", function (){
+
+						var deleteConfirm = confirm("정말 삭제하시겠습니까?");
+
+						if(deleteConfirm){
+							var data = { cno : $(this).attr("data-cno")};
+
+							$.ajax({
+								url : "/personal/view/commentdelete",
+								type : "post",
+								data : data,
+								success : function (result){
+									if(result == 1){
+									commentList();
+									}else {
+										alert("작성자 본인만 삭제 가능 합니다.")
+									}
+								},
+								error : function (){
+									alert("로그인하셔야합니다.")
+								}
+							});
+						}
+					});
 				</script>
 
 			</div>
